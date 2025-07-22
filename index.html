@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <meta name="description" content="Download APK safely and fast. Verified by SKMods.">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Loading...">
+  <meta property="og:description" content="Download APK safely and fast. Verified by SKMods.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="https://sahitya000.github.io/instamax_ads/">
+  <meta property="og:type" content="website">
+
+  <!-- Robots and Canonical -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sahitya000.github.io/instamax_ads/">
+
+  <style>
+    :root {
+      --ig-purple: #833AB4;
+      --ig-pink: #E1306C;
+      --ig-orange: #F77737;
+      --ig-yellow: #FCAF45;
+      --ig-gradient: linear-gradient(45deg, var(--ig-purple), var(--ig-pink), var(--ig-orange), var(--ig-yellow));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      touch-action: pan-y;
+      line-height: 1.5;
+    }
+    
+    /* Navbar with Instagram Gradient */
+    .navbar {
+      width: 100%;
+      background: var(--ig-gradient);
+      background-size: 300% 300%;
+      animation: gradient 8s ease infinite;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .navbar h1 {
+      margin: 0;
+      font-size: clamp(16px, 4vw, 20px);
+      font-weight: 600;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      position: absolute;
+      left: 15px;
+      font-size: clamp(14px, 3.5vw, 16px);
+    }
+    
+    /* Main Content */
+    .content {
+      padding: 15px;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .top-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+    
+    .circular-wrapper {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      margin-right: 15px;
+    }
+    
+    .circular-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--ig-purple) 0deg,
+        var(--ig-pink) 90deg,
+        var(--ig-orange) 180deg,
+        var(--ig-yellow) 270deg,
+        #e0e0e0 0deg
+      );
+      transition: background 0.1s linear;
+      padding: 4%;
+      box-sizing: border-box;
+      display: none;
+    }
+    
+    .app-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      width: 80%;
+      height: 80%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .app-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .app-info h1 {
+      margin: 0;
+      font-size: clamp(16px, 4vw, 18px);
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .app-info p {
+      margin: 5px 0;
+      font-size: clamp(12px, 3vw, 14px);
+      color: #666;
+    }
+    
+    .details {
+      font-size: clamp(10px, 2.5vw, 12px);
+      color: #888;
+    }
+
+    .ads-container {
+      margin: 20px 0;
+      width: 100%;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .ads-container iframe {
+      width: 100%;
+      height: auto;
+      min-height: 150px;
+      border: none;
+      background: transparent;
+    }
+
+    /* Instagram Gradient Button */
+    #downloadBtn {
+      background: var(--ig-gradient);
+      background-size: 300% 300%;
+      animation: gradient 8s ease infinite;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 15px;
+      width: 100%;
+      font-size: clamp(14px, 3.5vw, 16px);
+      cursor: pointer;
+      margin: 15px 0;
+      transition: transform 0.2s;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    #downloadBtn:hover {
+      transform: scale(1.02);
+    }
+    
+    #downloadBtn:active {
+      transform: scale(0.98);
+    }
+    
+    .info {
+      font-size: clamp(10px, 2.5vw, 12px);
+      color: #888;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    /* Image Gallery - MODIFIED FOR LARGER IMAGES */
+    .image-gallery {
+      margin: 20px 0;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      touch-action: pan-y;
+    }
+    
+    .gallery-container {
+      display: flex;
+      transition: transform 0.8s ease;
+      width: 100%;
+      will-change: transform;
+      overscroll-behavior-x: contain;
+    }
+    
+    .gallery-slide {
+      min-width: 100%;
+      display: grid;
+      /* ADJUST NUMBER OF COLUMNS HERE (3 columns by default) */
+      grid-template-columns: repeat(3, 1fr);
+      /* ADJUST GAP BETWEEN IMAGES HERE (15px by default) */
+      gap: 15px;
+      padding: 0 5px;
+    }
+    
+    .gallery-image {
+      width: 100%;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+      /* ADJUST ASPECT RATIO HERE (9/16 for portrait) */
+      aspect-ratio: 9/16;
+      /* ADJUST MINIMUM HEIGHT OF IMAGES HERE (250px by default) */
+      min-height: 250px;
+    }
+    
+    .gallery-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* CONTAIN shows full image, COVER crops to fill */
+      object-fit: contain;
+      background: #f5f5f5;
+    }
+    
+    .gallery-image:hover {
+      transform: scale(1.03);
+    }
+    
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .gallery-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .gallery-dot.active {
+      background: var(--ig-pink);
+    }
+
+    /* Full Size Image Preview - MODIFIED FOR FULL SCREEN */
+    .image-preview {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .image-preview.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .preview-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .preview-image {
+      /* ADJUST MAXIMUM PREVIEW SIZE HERE */
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain;
+      display: block;
+    }
+    
+    .close-preview {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 2001;
+    }
+    
+    .preview-nav {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 20px;
+      z-index: 2001;
+    }
+    
+    .preview-nav button {
+      background: rgba(255,255,255,0.3);
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    
+    .preview-nav button:hover {
+      background: rgba(255,255,255,0.5);
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      z-index: 1000;
+    }
+    
+    .footer p {
+      margin: 5px 0;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+    
+    .footer a {
+      color: var(--ig-pink);
+      text-decoration: none;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .gallery-slide {
+        /* ADJUST COLUMNS FOR TABLETS (2 columns) */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      
+      .close-preview {
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+      }
+      
+      .preview-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .content {
+        padding: 10px;
+      }
+      
+      .top-section {
+        padding: 10px;
+      }
+      
+      .circular-wrapper {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+      }
+      
+      .gallery-slide {
+        /* ADJUST COLUMNS FOR MOBILE (1 column) */
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .gallery-image {
+        /* ADJUST MOBILE IMAGE HEIGHT */
+        min-height: 300px;
+      }
+
+      .close-preview {
+        top: 10px;
+        right: 10px;
+        font-size: 25px;
+      }
+      
+      .preview-nav button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/">Home</a>
+    <h1>SKMods</h1>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="top-section">
+      <div class="circular-wrapper">
+        <div id="circularProgress" class="circular-progress"></div>
+        <img id="appIcon" class="app-icon" alt="App Icon" src="placeholder-icon.png">
+      </div>
+      <div class="app-info">
+        <h1 id="appName">Loading...</h1>
+        <p id="verifiedText">Verified by SKMods</p>
+        <div class="details" id="details">
+          Developer: Loading...<br>
+          Version: Loading... • Loading...<br>
+          Downloads: Loading...
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Container -->
+    <div class="ads-container">
+      <script type='text/javascript' src='//derideskid.com/35/41/e9/3541e932cb25237e89e4d40ce6461dff.js'></script>
+    </div>
+
+    <button id="downloadBtn">Download</button>
+    <div class="info" id="infoText">Download APK safely and fast</div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery" id="imageGallery">
+      <div class="gallery-container" id="galleryContainer"></div>
+      <div class="gallery-nav" id="galleryNav"></div>
+    </div>
+  </div>
+
+  <!-- Full Size Image Preview -->
+  <div class="image-preview" id="imagePreview">
+    <div class="preview-container">
+      <button class="close-preview">&times;</button>
+      <img class="preview-image" id="previewImage" src="" alt="Preview">
+      <div class="preview-nav">
+        <button id="prevImage">&lt;</button>
+        <button id="nextImage">&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 SKMods. All rights reserved.</p>
+    <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    // Configuration
+    let clicked = false;
+    let currentSlide = 0;
+    let autoScrollInterval;
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+    let horizontalDrag = false;
+    let allGalleryImages = [];
+    let currentPreviewIndex = 0;
+    
+    // Load configuration files
+    Promise.all([
+      fetch("strings.json").then(r => r.json()),
+      fetch("ads.json").then(r => r.json()),
+      fetch("gallery.json").then(r => r.json())
+    ])
+    .then(([strings, ads, gallery]) => {
+      // Update page content
+      updatePageContent(strings);
+      initGallery(gallery.images);
+      setupDownloadButton(ads, strings);
+      initImagePreview();
+    })
+    .catch(error => {
+      console.error("Error loading configuration:", error);
+      // Fallback to default gallery if config fails
+      const fallbackImages = [
+        "https://via.placeholder.com/1080x1920?text=Screenshot+1",
+        "https://via.placeholder.com/1080x1920?text=Screenshot+2",
+        "https://via.placeholder.com/1080x1920?text=Screenshot+3",
+        "https://via.placeholder.com/1080x1920?text=Screenshot+4"
+      ];
+      initGallery(fallbackImages);
+      initImagePreview();
+    });
+
+    // Update page content from strings.json
+    function updatePageContent(strings) {
+      document.getElementById("appName").textContent = strings.appName || "App Name";
+      document.title = (strings.appName || "App") + " - Download";
+      
+      document.querySelector('meta[name="description"]').content = strings.infoText || "Download APK safely and fast";
+      document.querySelector('meta[property="og:title"]').content = (strings.appName || "App") + " - Download";
+      document.querySelector('meta[property="og:description"]').content = strings.infoText || "Download APK safely and fast";
+      
+      document.getElementById("verifiedText").textContent = strings.verifiedText || "Verified by SKMods";
+      document.getElementById("details").innerHTML = `
+        Developer: ${strings.developer || "Unknown"}<br>
+        Version: ${strings.version || "1.0"} • ${strings.size || "10MB"}<br>
+        ${strings.downloads || "1000+ Downloads"}
+      `;
+      document.getElementById("downloadBtn").textContent = strings.buttonText || "Download";
+      document.getElementById("infoText").textContent = strings.infoText || "Download APK safely and fast";
+      
+      if (strings.appIcon) {
+        document.getElementById("appIcon").src = strings.appIcon;
+      }
+    }
+
+    // Initialize gallery with responsive images
+    function initGallery(images) {
+      const galleryContainer = document.getElementById('galleryContainer');
+      const galleryNav = document.getElementById('galleryNav');
+      
+      // Clear existing content
+      galleryContainer.innerHTML = '';
+      galleryNav.innerHTML = '';
+      allGalleryImages = images;
+      
+      // ADJUST IMAGES PER SLIDE BASED ON SCREEN WIDTH HERE
+      let imagesPerSlide = 3; // Default for desktop
+      if (window.innerWidth < 768) imagesPerSlide = 2; // Tablets
+      if (window.innerWidth < 480) imagesPerSlide = 1; // Mobile
+      
+      // Group images into slides
+      for (let i = 0; i < images.length; i += imagesPerSlide) {
+        const slide = document.createElement('div');
+        slide.className = 'gallery-slide';
+        
+        // Add images to slide
+        for (let j = 0; j < imagesPerSlide && (i + j) < images.length; j++) {
+          const imgContainer = document.createElement('div');
+          imgContainer.className = 'gallery-image';
+          
+          const img = document.createElement('img');
+          // Use original image URL (no thumbnail)
+          img.src = images[i + j];
+          img.alt = `App Screenshot ${i + j + 1}`;
+          img.loading = "lazy";
+          img.dataset.index = i + j;
+          
+          imgContainer.appendChild(img);
+          slide.appendChild(imgContainer);
+          
+          // Add click event for full screen preview
+          imgContainer.addEventListener('click', () => {
+            currentPreviewIndex = parseInt(img.dataset.index);
+            showImagePreview(currentPreviewIndex);
+          });
+        }
+        
+        galleryContainer.appendChild(slide);
+        
+        // Add navigation dot
+        const dot = document.createElement('div');
+        dot.className = 'gallery-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(Math.floor(i / imagesPerSlide)));
+        galleryNav.appendChild(dot);
+      }
+      
+      // Handle window resize
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          initGallery(allGalleryImages); // Reinitialize gallery on resize
+        }, 200);
+      });
+
+      // Touch events for gallery navigation
+      const imageGallery = document.getElementById('imageGallery');
+      imageGallery.addEventListener('touchstart', handleTouchStart, { passive: true });
+      imageGallery.addEventListener('touchmove', handleTouchMove, { passive: false });
+      imageGallery.addEventListener('touchend', handleTouchEnd);
+      
+      // Mouse events for gallery navigation
+      imageGallery.addEventListener('mousedown', handleMouseDown);
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      
+      // Start auto-scroll
+      startAutoScroll();
+    }
+    
+    // Initialize image preview functionality
+    function initImagePreview() {
+      const imagePreview = document.getElementById('imagePreview');
+      const previewImage = document.getElementById('previewImage');
+      const closePreview = document.querySelector('.close-preview');
+      const prevImageBtn = document.getElementById('prevImage');
+      const nextImageBtn = document.getElementById('nextImage');
+      
+      // Image Preview Functions
+      function showImagePreview(index) {
+        // Load the full size image
+        previewImage.src = allGalleryImages[index];
+        imagePreview.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        currentPreviewIndex = index;
+      }
+      
+      function closeImagePreview() {
+        imagePreview.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      function navigatePreview(direction) {
+        currentPreviewIndex += direction;
+        if (currentPreviewIndex < 0) currentPreviewIndex = allGalleryImages.length - 1;
+        if (currentPreviewIndex >= allGalleryImages.length) currentPreviewIndex = 0;
+        previewImage.src = allGalleryImages[currentPreviewIndex];
+      }
+      
+      // Event listeners for preview
+      closePreview.addEventListener('click', closeImagePreview);
+      prevImageBtn.addEventListener('click', () => navigatePreview(-1));
+      nextImageBtn.addEventListener('click', () => navigatePreview(1));
+      
+      // Close preview when clicking outside image
+      imagePreview.addEventListener('click', (e) => {
+        if (e.target === imagePreview) {
+          closeImagePreview();
+        }
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (imagePreview.classList.contains('active')) {
+          if (e.key === 'Escape') closeImagePreview();
+          if (e.key === 'ArrowLeft') navigatePreview(-1);
+          if (e.key === 'ArrowRight') navigatePreview(1);
+        }
+      });
+    }
+    
+    // Setup download button functionality
+    function setupDownloadButton(ads, strings) {
+      const btn = document.getElementById("downloadBtn");
+      const circle = document.getElementById("circularProgress");
+      
+      btn.addEventListener("click", () => {
+        if (!clicked) {
+          if (ads.adLink) window.open(ads.adLink, "_blank");
+          btn.textContent = strings.buttonTextSecond || "Continue Download";
+          clicked = true;
+        } else {
+          btn.style.display = "none";
+          circle.style.display = "block";
+          let progress = 0;
+          const interval = setInterval(() => {
+            progress++;
+            circle.style.background = `conic-gradient(
+              var(--ig-purple) ${progress * 1.8}deg,
+              var(--ig-pink) ${progress * 2.7}deg,
+              var(--ig-orange) ${progress * 3.6}deg,
+              var(--ig-yellow) ${progress * 4.5}deg,
+              #e0e0e0 0deg
+            )`;
+            if (progress >= 100) {
+              clearInterval(interval);
+              setTimeout(() => { 
+                if (ads.apkLink) {
+                  window.location.href = ads.apkLink;
+                } else {
+                  btn.style.display = "block";
+                  circle.style.display = "none";
+                  alert("Download link not available");
+                }
+              }, 500);
+            }
+          }, 50);
+        }
+      });
+    }
+
+    // Gallery control functions
+    function startAutoScroll() {
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function handleTouchStart(e) {
+      clearInterval(autoScrollInterval);
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging = true;
+      horizontalDrag = false;
+    }
+    
+    function handleTouchMove(e) {
+      if (!isDragging) return;
+      
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      const diffX = startX - x;
+      const diffY = startY - y;
+      
+      // Determine if this is primarily a horizontal swipe
+      if (!horizontalDrag && Math.abs(diffX) > Math.abs(diffY)) {
+        horizontalDrag = true;
+      }
+      
+      if (horizontalDrag) {
+        e.preventDefault();
+        const galleryContainer = document.getElementById('galleryContainer');
+        const totalSlides = document.querySelectorAll('.gallery-slide').length;
+        const dragOffset = (diffX / window.innerWidth) * 100;
+        let position = Math.max(0, Math.min(currentSlide * 100 + dragOffset, (totalSlides - 1) * 100));
+        
+        galleryContainer.style.transition = 'none';
+        galleryContainer.style.transform = `translateX(-${position}%)`;
+      }
+    }
+    
+    function handleTouchEnd(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      if (horizontalDrag) {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextSlide() : prevSlide();
+        } else {
+          goToSlide(currentSlide);
+        }
+      }
+      
+      horizontalDrag = false;
+      startAutoScroll();
+    }
+    
+    function handleMouseDown(e) {
+      clearInterval(autoScrollInterval);
+      startX = e.clientX;
+      startY = e.clientY;
+      isDragging = true;
+      horizontalDrag = false;
+    }
+    
+    function handleMouseMove(e) {
+      if (!isDragging) return;
+      
+      const x = e.clientX;
+      const y = e.clientY;
+      const diffX = startX - x;
+      const diffY = startY - y;
+      
+      // Determine if this is primarily a horizontal drag
+      if (!horizontalDrag && Math.abs(diffX) > Math.abs(diffY)) {
+        horizontalDrag = true;
+      }
+      
+      if (horizontalDrag) {
+        e.preventDefault();
+        const galleryContainer = document.getElementById('galleryContainer');
+        const totalSlides = document.querySelectorAll('.gallery-slide').length;
+        const dragOffset = (diffX / window.innerWidth) * 100;
+        let position = Math.max(0, Math.min(currentSlide * 100 + dragOffset, (totalSlides - 1) * 100));
+        
+        galleryContainer.style.transition = 'none';
+        galleryContainer.style.transform = `translateX(-${position}%)`;
+      }
+    }
+    
+    function handleMouseUp(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      if (horizontalDrag) {
+        const endX = e.clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextSlide() : prevSlide();
+        } else {
+          goToSlide(currentSlide);
+        }
+      }
+      
+      horizontalDrag = false;
+      startAutoScroll();
+    }
+    
+    function nextSlide() {
+      const totalSlides = document.querySelectorAll('.gallery-slide').length;
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateGallery();
+    }
+    
+    function prevSlide() {
+      const totalSlides = document.querySelectorAll('.gallery-slide').length;
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateGallery();
+    }
+    
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateGallery();
+    }
+    
+    function updateGallery() {
+      const galleryContainer = document.getElementById('galleryContainer');
+      const dots = document.querySelectorAll('.gallery-dot');
+      
+      galleryContainer.style.transition = 'transform 0.8s ease';
+      galleryContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+  </script>
+</body>
+</html>
