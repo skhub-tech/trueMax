@@ -1,5 +1,5 @@
 {
-  "appName": "TrueMax",
+  "appName": "Blazegram",
   "verifiedText": "Verified by SKTECH",
   "developer": "SKTech",
   "version": "15.26.7",
@@ -8,5 +8,5 @@
   "buttonText": "Start Download ",
   "buttonTextSecond": "Install apk",
   "infoText": "Download the latest version of TrueMax with all features",
-  "appIcon": "https://skhub-tech.github.io/trueMax/apk-icon.png"
+  "appIcon": ""
 }
